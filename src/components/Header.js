@@ -1,11 +1,17 @@
 import './Header.css'
-export default function Header({ score = 0 }) {
+import logo from './logo-multiply.svg'
+
+export default function Header() {
     return (
         <header className="header">
-            <span className="header-title">
-                <span className="header-logo"> ✖️</span>Multiply Game
-            </span>
-            <span className="header-score">Score: {score}</span>
+            <img
+                src={logo}
+                width={32}
+                height={32}
+                className="header-logo"
+                alt=""
+            />
+            ️ Multiply Game
         </header>
     )
 }

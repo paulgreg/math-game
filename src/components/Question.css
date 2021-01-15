@@ -1,0 +1,11 @@
+.question {
+    width: 100%;
+    text-align: center;
+    font-size: 46px;
+}
+
+.question-answer {
+    font-size: 46px;
+    width: 110px;
+    text-align: center;
+}
