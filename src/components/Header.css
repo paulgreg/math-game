@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    font-size: 3em;
+    margin: 0.25em;
+    padding: 0.2em 0.5em;
+    background: lightblue;
+    border-radius: 10px;
+}
+
+.header-title {
+    flex: 1;
+    display: flex;
+}
+
+.header-logo {
+    margin-right: 0.25em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .header-logo {
+        animation: header-logo-spin infinite 2s ease-in-out;
+    }
+}
+
+@keyframes header-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from 'react'
+import './App.css'
+import Header from './components/Header'
+import Form from './components/Form'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [difficulty, setDifficulty] = useState(1)
+    const getNumber = (difficulty) =>
+        (Math.random() * Math.pow(10, difficulty)).toFixed()
+
+    const [score, setScore] = useState(0)
+    const [numbers, setNumbers] = useState([
+        getNumber(difficulty),
+        getNumber(difficulty),
+    ])
+
+    const checkAnswer = (answer) => {
+        const correctResult = x * y
+        if (answer === correctResult) {
+            setNumbers([getNumber(difficulty), getNumber(difficulty)])
+            setScore(score + correctResult)
+        }
+    }
+
+    useEffect(() => {
+        setNumbers([getNumber(difficulty), getNumber(difficulty)])
+    }, [difficulty])
+
+    const [x, y] = numbers
+    return (
+        <div className="app">
+            <Header score={score} className="app-header" />
+            <section className="app-main">
+                <Form
+                    x={x}
+                    y={y}
+                    onSubmit={checkAnswer}
+                    onDifficultyChange={(d) => setDifficulty(d)}
+                />
+            </section>
+        </div>
+    )
 }
-
-export default App;

@@ -1,0 +1,11 @@
+.difficulty {
+    margin: 2em auto;
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
+
+.difficulty-range {
+    margin-left: 1em;
+    width: 80px;
+}

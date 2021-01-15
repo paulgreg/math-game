@@ -1,0 +1,13 @@
+.form {
+    width: 100%;
+    text-align: center;
+}
+.form-question {
+    font-size: 50px;
+}
+
+.form-answer {
+    font-size: 50px;
+    width: 150px;
+    text-align: center;
+}
