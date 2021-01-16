@@ -20,7 +20,7 @@ export default function App() {
         getNumber(),
     ])
 
-    const [setWinTimeout] = useTimeout(600)
+    const [setWinTimeout] = useTimeout(300)
 
     const getNewQuestion = () => {
         setNumbers([getNumber({ difficulty }), getNumber()])
