@@ -6,4 +6,5 @@ https://paulgreg.me/math-game
 ## Deploy
 
 To deploy to github on branch gh_pages
-npm i && PUBLIC_URL="https://paulgreg.me/math-game" ./to_ghpages
+
+`npm i && PUBLIC_URL="https://paulgreg.me/math-game" ./to_ghpages`
