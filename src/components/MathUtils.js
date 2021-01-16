@@ -26,5 +26,7 @@ export const getNumber = ({
 }
 
 export const checkResult = (x, y, result) => {
-    return Math.abs(parseFloat(result) - x * y) < 0.000000001
+    const parsedResult = parseFloat((result || '').replace(',', '.'))
+    console.log(parsedResult)
+    return Math.abs(parsedResult - x * y) < 0.000000001
 }

@@ -46,6 +46,7 @@ describe('MathUtils', () => {
                 { x: 2, y: 10, result: '20', expected: true },
                 { x: 2, y: 10, result: '1', expected: false },
                 { x: 3, y: 0.1, result: '0.3', expected: true },
+                { x: 3, y: 0.1, result: '0,3', expected: true },
                 { x: 3, y: 0.01, result: '0.03', expected: true },
                 { x: 3, y: 0.001, result: '0.003', expected: true },
                 { x: 3, y: 0.0001, result: '0.0003', expected: true },
