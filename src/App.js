@@ -8,6 +8,7 @@ import Difficulty from './components/Difficulty'
 import { getNumber, MULTIPLY_INT_1_NUMBER } from './components/MathUtils'
 import { checkResult } from './components/MathUtils'
 import { useTimeout } from './timeout'
+import confetti from 'canvas-confetti'
 
 export default function App() {
     const [win, setWin] = useState(false)
@@ -30,6 +31,11 @@ export default function App() {
         setWin(false)
         if (checkResult(x, y, answer)) {
             setWin(true)
+            confetti({
+                particleCount: 80,
+                spread: 50,
+                origin: { y: 0.6 },
+            })
             setScore(score + 1)
             setWinTimeout(getNewQuestion)
         }
