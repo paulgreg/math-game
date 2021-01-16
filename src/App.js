@@ -27,9 +27,9 @@ export default function App() {
         setWin(false)
     }
 
-    const checkAnswer = (answer) => {
+    const checkAnswer = (result) => {
         setWin(false)
-        if (checkResult(x, y, answer)) {
+        if (checkResult({ difficulty, x, y, result })) {
             setWin(true)
             setScore(score + 1)
             setWinTimeout(getNewQuestion)
@@ -43,7 +43,13 @@ export default function App() {
         <div className="app">
             <Header className="app-header" />
             <section className="app-main">
-                <Question x={x} y={y} disabled={win} onSubmit={checkAnswer} />
+                <Question
+                    x={x}
+                    y={y}
+                    difficulty={difficulty}
+                    disabled={win}
+                    onSubmit={checkAnswer}
+                />
                 <Score score={score} />
                 <Chronometer x={x} y={y} show={win} />
             </section>

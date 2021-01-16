@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { getOperation } from './MathUtils'
 import './Question.css'
 
 export default function Question({
     x,
     y,
+    difficulty,
     disabled = false,
     onSubmit = () => {},
 }) {
@@ -21,7 +23,7 @@ export default function Question({
     return (
         <div className="question">
             <span className="question-q">
-                {x} x {y} ={' '}
+                {x} {getOperation(difficulty)} {y} ={' '}
             </span>
             <input
                 type="text"

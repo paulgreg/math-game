@@ -1,3 +1,6 @@
+export const ADD_INT_1_NUMBER = 'ADD_INT_1_NUMBER'
+export const ADD_INT_2_NUMBER = 'ADD_INT_2_NUMBER'
+export const ADD_INT_3_NUMBER = 'ADD_INT_3_NUMBER'
 export const MULTIPLY_INT_1_NUMBER = 'MULTIPLY_INT_1_NUMBER'
 export const MULTIPLY_INT_2_NUMBER = 'MULTIPLY_INT_2_NUMBER'
 export const MULTIPLY_SIMPLE_FLOAT_NUMBER = 'MULTIPLY_SIMPLE_FLOAT_NUMBER'
@@ -10,23 +13,47 @@ export const getRandomSimpleFloat = () => {
 export const getRandomInt = (min, max) =>
     Math.round(Math.random() * (max - min) + min)
 
-export const getNumber = ({
-    difficulty = MULTIPLY_INT_1_NUMBER,
-    min = 2,
-} = {}) => {
+export const getNumber = ({ difficulty = MULTIPLY_INT_1_NUMBER } = {}) => {
     switch (difficulty) {
         case MULTIPLY_SIMPLE_FLOAT_NUMBER:
             return getRandomSimpleFloat()
         case MULTIPLY_INT_2_NUMBER:
-            return getRandomInt(min, 100)
+        case ADD_INT_2_NUMBER:
+            return getRandomInt(10, 100)
+        case ADD_INT_3_NUMBER:
+            return getRandomInt(100, 1000)
         case MULTIPLY_INT_1_NUMBER:
         default:
-            return getRandomInt(min, 10)
+            return getRandomInt(2, 10)
     }
 }
 
-export const checkResult = (x, y, result) => {
+export const getOperation = (difficulty) => {
+    switch (difficulty) {
+        case MULTIPLY_INT_1_NUMBER:
+        case MULTIPLY_INT_2_NUMBER:
+        case MULTIPLY_SIMPLE_FLOAT_NUMBER:
+            return 'x'
+        case ADD_INT_1_NUMBER:
+        case ADD_INT_2_NUMBER:
+        case ADD_INT_3_NUMBER:
+        default:
+            return '+'
+    }
+}
+
+const compute = ({ difficulty, x, y }) => {
+    switch (getOperation(difficulty)) {
+        case 'x':
+            return x * y
+        case '+':
+        default:
+            return x + y
+    }
+}
+
+export const checkResult = ({ difficulty, x, y, result }) => {
     const parsedResult = parseFloat((result || '').replace(',', '.'))
-    console.log(parsedResult)
-    return Math.abs(parsedResult - x * y) < 0.000000001
+    const computedResult = compute({ difficulty, x, y })
+    return Math.abs(parsedResult - computedResult) < 0.000000001
 }
