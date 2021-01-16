@@ -16,6 +16,7 @@
         "dev": "npm run start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "tdd": "react-scripts test --watch",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
