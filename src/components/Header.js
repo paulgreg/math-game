@@ -11,7 +11,7 @@ export default function Header() {
                 className="header-logo"
                 alt=""
             />
-            ️ Multiply Game
+            ️ Math Game
         </header>
     )
 }
