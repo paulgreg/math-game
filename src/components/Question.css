@@ -1,7 +1,7 @@
 .question {
     width: 100%;
     text-align: center;
-    font-size: 38px;
+    font-size: 36px;
 }
 
 .question-q {
@@ -11,7 +11,7 @@
 }
 
 .question-answer {
-    font-size: 38px;
+    font-size: 36px;
     width: 100px;
     text-align: center;
 }
