@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react'
 import './Question.css'
 
-export default function Question({ x, y, onSubmit = () => {} }) {
+export default function Question({
+    x,
+    y,
+    disabled = false,
+    onSubmit = () => {},
+}) {
     const [value, setValue] = useState()
     useEffect(() => setValue(''), [x, y])
 
     const onNumberChange = (e) => {
-        const nb = e.target.value
-        setValue(nb)
-        onSubmit(nb)
+        if (!disabled) {
+            const nb = e.target.value
+            setValue(nb)
+            onSubmit(nb)
+        }
     }
 
     return (
