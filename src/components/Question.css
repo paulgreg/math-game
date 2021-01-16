@@ -1,17 +1,17 @@
 .question {
     width: 100%;
     text-align: center;
-    font-size: 46px;
+    font-size: 38px;
 }
 
 .question-q {
     display: inline-block;
     text-align: right;
-    width: 260px;
+    width: 200px;
 }
 
 .question-answer {
-    font-size: 46px;
-    width: 120px;
+    font-size: 38px;
+    width: 100px;
     text-align: center;
 }
