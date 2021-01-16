@@ -3,3 +3,16 @@
     font-size: 1.8em;
     margin: 0.5em;
 }
+
+.fast {
+    color: green;
+}
+.medium {
+    color: rgb(0, 64, 0);
+}
+.long {
+    color: orange;
+}
+.verylong {
+    color: crimson;
+}
