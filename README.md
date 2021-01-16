@@ -1,6 +1,7 @@
 # Math Game
 
-A simple math game, for kids to learn math operations.
+A simple math game, for kids to learn math operations :
+https://paulgreg.me/math-game
 
 ## Deploy
 
