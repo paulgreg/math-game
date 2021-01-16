@@ -2,9 +2,9 @@ import { useState } from 'react'
 import './Difficulty.css'
 
 export default function Difficulty({ onDifficultyChange = () => {} }) {
-    const [difficulty, setDifficulty] = useState(1)
+    const [difficulty, setDifficulty] = useState('d1')
     const onChange = (e) => {
-        const v = parseInt(e.target.value, 10)
+        const v = e.target.value
         setDifficulty(v)
         onDifficultyChange(v)
     }
@@ -16,20 +16,30 @@ export default function Difficulty({ onDifficultyChange = () => {} }) {
                     type="radio"
                     name="difficulty"
                     onChange={onChange}
-                    checked={difficulty === 1}
-                    value={1}
+                    checked={difficulty === 'd1'}
+                    value="d1"
                 ></input>
-                1 number
+                2 to 10
             </label>
             <label className="difficulty-option">
                 <input
                     type="radio"
                     name="difficulty"
                     onChange={onChange}
-                    checked={difficulty === 2}
-                    value={2}
+                    checked={difficulty === 'd2'}
+                    value="d2"
                 ></input>
-                2 numbers
+                2 to 99
+            </label>
+            <label className="difficulty-option">
+                <input
+                    type="radio"
+                    name="difficulty"
+                    onChange={onChange}
+                    checked={difficulty === 'f1'}
+                    value="f1"
+                ></input>
+                0.1, 0.01, etc
             </label>
         </div>
     )

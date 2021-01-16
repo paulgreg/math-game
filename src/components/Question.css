@@ -4,8 +4,14 @@
     font-size: 46px;
 }
 
+.question-q {
+    display: inline-block;
+    text-align: right;
+    width: 260px;
+}
+
 .question-answer {
     font-size: 46px;
-    width: 110px;
+    width: 120px;
     text-align: center;
 }

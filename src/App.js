@@ -5,39 +5,37 @@ import Question from './components/Question'
 import Score from './components/Score'
 import Chronometer from './components/Chronometer'
 import Difficulty from './components/Difficulty'
-
-let timeout
+import { getNumber } from './components/MathUtils'
+import { checkResult } from './components/MathUtils'
+import { useTimeout } from './timeout'
 
 export default function App() {
     const [win, setWin] = useState(false)
-    const [difficulty, setDifficulty] = useState(1)
-    const getNumber = (difficulty, min = 2) => {
-        const max = difficulty === 1 ? 9 : 99
-        return (Math.random() * (max - min) + min).toFixed()
-    }
+    const [difficulty, setDifficulty] = useState('d1')
 
     const [score, setScore] = useState(0)
     const [numbers, setNumbers] = useState([
-        getNumber(difficulty),
-        getNumber(difficulty),
+        getNumber({ difficulty }),
+        getNumber(),
     ])
 
+    const [setWinTimeout] = useTimeout(600)
+
+    const getNewQuestion = () => {
+        setNumbers([getNumber({ difficulty }), getNumber()])
+        setWin(false)
+    }
+
     const checkAnswer = (answer) => {
-        const correctResult = x * y
-        if (answer === correctResult) {
+        setWin(false)
+        if (checkResult(x, y, answer)) {
             setWin(true)
-            setScore(score + correctResult)
-            clearTimeout(timeout)
-            timeout = setTimeout(() => {
-                setNumbers([getNumber(difficulty), getNumber(difficulty)])
-                setWin(false)
-            }, 500)
+            setScore(score + 1)
+            setWinTimeout(getNewQuestion)
         }
     }
 
-    useEffect(() => {
-        setNumbers([getNumber(difficulty), getNumber(difficulty)])
-    }, [difficulty])
+    useEffect(getNewQuestion, [difficulty])
 
     const [x, y] = numbers
     return (
@@ -47,6 +45,8 @@ export default function App() {
                 <Question x={x} y={y} onSubmit={checkAnswer} />
                 <Score score={score} />
                 <Chronometer x={x} y={y} show={win} />
+            </section>
+            <section className="app-options">
                 <Difficulty onDifficultyChange={(d) => setDifficulty(d)} />
             </section>
         </div>

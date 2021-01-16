@@ -6,14 +6,16 @@ export default function Question({ x, y, onSubmit = () => {} }) {
     useEffect(() => setValue(''), [x, y])
 
     const onNumberChange = (e) => {
-        const nb = parseInt(e.target.value, 10) || ''
+        const nb = e.target.value
         setValue(nb)
         onSubmit(nb)
     }
 
     return (
         <div className="question">
-            {x} x {y} =
+            <span className="question-q">
+                {x} x {y} ={' '}
+            </span>
             <input
                 type="text"
                 name="answer"
@@ -21,9 +23,9 @@ export default function Question({ x, y, onSubmit = () => {} }) {
                 onChange={onNumberChange}
                 className="question-answer"
                 autoFocus
-                pattern="[0-9]*"
+                pattern="[\.,0-9]*"
                 inputMode="numeric"
-                maxLength="4"
+                maxLength="6"
             />{' '}
             ?
         </div>
