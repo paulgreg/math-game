@@ -1,6 +1,6 @@
 .question {
     width: 100%;
-    font-size: 34px;
+    font-size: 28px;
     text-align: center;
 }
 
@@ -11,18 +11,18 @@
 
 .question-answer {
     width: 100px;
-    font-size: 34px;
+    font-size: 28px;
     text-align: center;
 }
 
 @media (max-width: 320px) {
     .question {
-        font-size: 30px;
+        font-size: 26px;
     }
 
     .question-answer {
         width: 90px;
-        font-size: 30px;
+        font-size: 26px;
     }
 }
 

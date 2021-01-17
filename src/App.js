@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Question from './components/Question'
@@ -25,11 +25,16 @@ export default function App() {
 
     const [setWinTimeout] = useTimeout(300)
 
-    const getNewQuestion = useCallback(() => {
-        setDifficulty(pickRandomDifficulty(difficulties))
-        setNumbers(generateNumbers(difficulty))
+    const getNewQuestion = () => {
+        const newDifficulty = pickRandomDifficulty(difficulties)
+        setDifficulty(newDifficulty)
+        let a, b
+        do {
+            ;[a, b] = generateNumbers(newDifficulty)
+        } while (a === numbers[0] && b === numbers[1])
+        setNumbers([a, b])
         setWin(false)
-    }, [difficulty, difficulties])
+    }
 
     const checkAnswer = (result) => {
         setWin(false)
@@ -40,7 +45,7 @@ export default function App() {
         }
     }
 
-    useEffect(getNewQuestion, [getNewQuestion, difficulty, difficulties])
+    useEffect(getNewQuestion, [difficulties])
 
     const [x, y] = numbers
     return (
