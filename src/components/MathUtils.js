@@ -13,8 +13,8 @@ export const getRandomSimpleFloat = () => {
 export const getRandomInt = (min, max) =>
     Math.round(Math.random() * (max - min) + min)
 
-export const generateNumber = ({ difficulty = MULTIPLY_INT_1_NUMBER } = {}) => {
-    switch (difficulty) {
+export const generateNumber = ({ current = MULTIPLY_INT_1_NUMBER } = {}) => {
+    switch (current) {
         case MULTIPLY_SIMPLE_FLOAT_NUMBER:
             return getRandomSimpleFloat()
         case MULTIPLY_INT_2_NUMBER:
@@ -23,17 +23,18 @@ export const generateNumber = ({ difficulty = MULTIPLY_INT_1_NUMBER } = {}) => {
         case ADD_INT_3_NUMBER:
             return getRandomInt(100, 1000)
         case MULTIPLY_INT_1_NUMBER:
+        case ADD_INT_1_NUMBER:
         default:
             return getRandomInt(2, 10)
     }
 }
 
-export const generateNumbers = ({ difficulty } = {}) => {
-    return [generateNumber({ difficulty }), generateNumber()]
+export const generateNumbers = (difficulty) => {
+    return [generateNumber(difficulty), generateNumber()]
 }
 
-export const getOperation = (difficulty) => {
-    switch (difficulty) {
+export const getOperation = ({ current }) => {
+    switch (current) {
         case MULTIPLY_INT_1_NUMBER:
         case MULTIPLY_INT_2_NUMBER:
         case MULTIPLY_SIMPLE_FLOAT_NUMBER:

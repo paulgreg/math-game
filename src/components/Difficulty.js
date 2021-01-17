@@ -8,13 +8,19 @@ import {
     MULTIPLY_SIMPLE_FLOAT_NUMBER,
 } from './MathUtils'
 
+export const getDefaultDifficulty = () => {
+    return {
+        current: MULTIPLY_INT_1_NUMBER,
+    }
+}
+
 export default function Difficulty({
     difficulty,
     onDifficultyChange = () => {},
 }) {
     const onChange = (e) => {
         const v = e.target.value
-        onDifficultyChange(v)
+        onDifficultyChange({ current: v })
     }
     return (
         <div className="difficulty">
@@ -51,10 +57,10 @@ export default function Difficulty({
                         type="radio"
                         name="difficulty"
                         onChange={onChange}
-                        checked={difficulty === value}
+                        checked={difficulty.current === value}
                         value={value}
                     ></input>{' '}
-                    {value === difficulty}
+                    {value === difficulty.current}
                     {label}
                 </label>
             ))}

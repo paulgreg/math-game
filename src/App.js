@@ -4,23 +4,23 @@ import Header from './components/Header'
 import Question from './components/Question'
 import Score from './components/Score'
 import Chronometer from './components/Chronometer'
-import Difficulty from './components/Difficulty'
-import { generateNumbers, MULTIPLY_INT_1_NUMBER } from './components/MathUtils'
+import Difficulty, { getDefaultDifficulty } from './components/Difficulty'
+import { generateNumbers } from './components/MathUtils'
 import { checkResult } from './components/MathUtils'
 import { useTimeout } from './timeout'
 import Confetti from './components/Confetti'
 
 export default function App() {
     const [win, setWin] = useState(false)
-    const [difficulty, setDifficulty] = useState(MULTIPLY_INT_1_NUMBER)
+    const [difficulty, setDifficulty] = useState(getDefaultDifficulty())
 
     const [score, setScore] = useState(0)
-    const [numbers, setNumbers] = useState(generateNumbers({ difficulty }))
+    const [numbers, setNumbers] = useState(generateNumbers(difficulty))
 
     const [setWinTimeout] = useTimeout(300)
 
     const getNewQuestion = () => {
-        setNumbers(generateNumbers({ difficulty }))
+        setNumbers(generateNumbers(difficulty))
         setWin(false)
     }
 
