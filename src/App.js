@@ -5,7 +5,7 @@ import Question from './components/Question'
 import Score from './components/Score'
 import Chronometer from './components/Chronometer'
 import Difficulty from './components/Difficulty'
-import { getNumber, MULTIPLY_INT_1_NUMBER } from './components/MathUtils'
+import { generateNumbers, MULTIPLY_INT_1_NUMBER } from './components/MathUtils'
 import { checkResult } from './components/MathUtils'
 import { useTimeout } from './timeout'
 import Confetti from './components/Confetti'
@@ -15,15 +15,12 @@ export default function App() {
     const [difficulty, setDifficulty] = useState(MULTIPLY_INT_1_NUMBER)
 
     const [score, setScore] = useState(0)
-    const [numbers, setNumbers] = useState([
-        getNumber({ difficulty }),
-        getNumber(),
-    ])
+    const [numbers, setNumbers] = useState(generateNumbers({ difficulty }))
 
     const [setWinTimeout] = useTimeout(300)
 
     const getNewQuestion = () => {
-        setNumbers([getNumber({ difficulty }), getNumber()])
+        setNumbers(generateNumbers({ difficulty }))
         setWin(false)
     }
 

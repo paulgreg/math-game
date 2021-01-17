@@ -1,5 +1,5 @@
 import {
-    getNumber,
+    generateNumber,
     checkResult,
     MULTIPLY_INT_1_NUMBER,
     MULTIPLY_INT_2_NUMBER,
@@ -9,31 +9,31 @@ import {
 } from './MathUtils'
 
 describe('MathUtils', () => {
-    describe('getNumbers', () => {
+    describe('generateNumbers', () => {
         describe('by default', () => {
             test('should return a number > 2 and < 11', () => {
-                const n = getNumber()
+                const n = generateNumber()
                 expect(n).toBeGreaterThanOrEqual(2)
                 expect(n).toBeLessThan(11)
             })
         })
         describe('with difficulty MULTIPLY_INT_1_NUMBER', () => {
             test('should return a number >= 2 and <= 10', () => {
-                const n = getNumber({ difficulty: MULTIPLY_INT_1_NUMBER })
+                const n = generateNumber({ difficulty: MULTIPLY_INT_1_NUMBER })
                 expect(n).toBeGreaterThanOrEqual(2)
                 expect(n).toBeLessThanOrEqual(10)
             })
         })
         describe('with difficulty MULTIPLY_INT_2_NUMBER', () => {
             test('should return a number >= 2 and <= 100', () => {
-                const n = getNumber({ difficulty: MULTIPLY_INT_2_NUMBER })
+                const n = generateNumber({ difficulty: MULTIPLY_INT_2_NUMBER })
                 expect(n).toBeGreaterThanOrEqual(2)
                 expect(n).toBeLessThanOrEqual(100)
             })
         })
         describe('with difficulty MULTIPLY_SIMPLE_FLOAT_NUMBER', () => {
             test('should return a number like 0.1, 0.01, etc', () => {
-                const n = getNumber({
+                const n = generateNumber({
                     difficulty: MULTIPLY_SIMPLE_FLOAT_NUMBER,
                 })
                 expect(n).toBeLessThanOrEqual(1)
