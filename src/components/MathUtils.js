@@ -4,9 +4,11 @@ export const ADD_INT_2_NUMBER = 'ADD_INT_2_NUMBER'
 export const ADD_INT_3_NUMBER = 'ADD_INT_3_NUMBER'
 export const MULTIPLY_INT_1_NUMBER = 'MULTIPLY_INT_1_NUMBER'
 export const MULTIPLY_INT_2_NUMBER = 'MULTIPLY_INT_2_NUMBER'
+export const MULTIPLY_INT_TENS_NUMBER = 'MULTIPLY_INT_TENS_NUMBER'
 export const MULTIPLY_SIMPLE_FLOAT_NUMBER = 'MULTIPLY_SIMPLE_FLOAT_NUMBER'
 export const DIVIDE_SIMPLE_FLOAT_NUMBER = 'DIVIDE_SIMPLE_FLOAT_NUMBER'
 export const DIVIDE_INT_2_NUMBER = 'DIVIDE_INT_2_NUMBER'
+export const DIVIDE_INT_TENS_NUMBER = 'DIVIDE_INT_TENS_NUMBER'
 
 export const getRandomSimpleFloat = () => {
     const power = getRandomInt(1, 3)
@@ -42,6 +44,10 @@ export const generateNumbers = (difficulty) => {
         case MULTIPLY_INT_1_NUMBER:
         case ADD_INT_1_NUMBER:
             return [getRandomInt(2, 10), getRandomInt(2, 10)]
+        case MULTIPLY_INT_TENS_NUMBER:
+            return [getRandomInt(2, 100), Math.pow(10, getRandomInt(1, 4))]
+        case DIVIDE_INT_TENS_NUMBER:
+            return [getRandomInt(100, 9999), Math.pow(10, getRandomInt(1, 4))]
         default:
             throw new Error('difficulty is not set')
     }
@@ -51,10 +57,12 @@ export const getOperation = (difficulty) => {
     switch (difficulty) {
         case DIVIDE_INT_2_NUMBER:
         case DIVIDE_SIMPLE_FLOAT_NUMBER:
+        case DIVIDE_INT_TENS_NUMBER:
             return '÷'
         case MULTIPLY_INT_1_NUMBER:
         case MULTIPLY_INT_2_NUMBER:
         case MULTIPLY_SIMPLE_FLOAT_NUMBER:
+        case MULTIPLY_INT_TENS_NUMBER:
             return 'x'
         case ADD_INT_SIMPLE_NUMBER:
         case ADD_INT_1_NUMBER:

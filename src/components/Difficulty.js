@@ -10,6 +10,8 @@ import {
     MULTIPLY_SIMPLE_FLOAT_NUMBER,
     DIVIDE_INT_2_NUMBER,
     DIVIDE_SIMPLE_FLOAT_NUMBER,
+    MULTIPLY_INT_TENS_NUMBER,
+    DIVIDE_INT_TENS_NUMBER,
 } from './MathUtils'
 import { getPoints } from './Score'
 import { load, save } from './store'
@@ -31,8 +33,10 @@ const labels = {
     MULTIPLY_INT_1_NUMBER: 'classic multiplication like 2 x 5',
     MULTIPLY_INT_2_NUMBER: 'multiplication like 32 x 3',
     DIVIDE_INT_2_NUMBER: 'classic division like 30 ÷  5',
+    MULTIPLY_INT_TENS_NUMBER: 'multiplication with 10, 100, 1000',
     MULTIPLY_SIMPLE_FLOAT_NUMBER: 'multiplication like 23.111 x 0.001 ',
     DIVIDE_SIMPLE_FLOAT_NUMBER: 'division like 132.34 ÷ 0.01',
+    DIVIDE_INT_TENS_NUMBER: 'division with 10, 100, 1000',
 }
 
 export const getDefaultDifficulties = () => {
@@ -44,8 +48,10 @@ export const getDefaultDifficulties = () => {
         [ADD_INT_3_NUMBER]: false,
         [MULTIPLY_INT_1_NUMBER]: true,
         [MULTIPLY_INT_2_NUMBER]: false,
+        [MULTIPLY_INT_TENS_NUMBER]: false,
         [MULTIPLY_SIMPLE_FLOAT_NUMBER]: false,
         [DIVIDE_INT_2_NUMBER]: false,
+        [DIVIDE_INT_TENS_NUMBER]: false,
         [DIVIDE_SIMPLE_FLOAT_NUMBER]: false,
         ...savedDifficulty,
     }
