@@ -34,7 +34,7 @@ export default function Question({
                 autoFocus
                 pattern="[\.,0-9]*"
                 inputMode="numeric"
-                maxLength="6"
+                maxLength="8"
             />{' '}
             ?
         </div>
