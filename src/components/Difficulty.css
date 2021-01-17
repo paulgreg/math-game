@@ -5,5 +5,8 @@
 
 .difficulties-option {
     display: block;
-    line-height: 1.5em;
+}
+.difficulties-point {
+    display: block;
+    margin: 0.1em auto 0.6em 1.5em;
 }

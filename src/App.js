@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Question from './components/Question'
-import Score from './components/Score'
+import Score, { getPoints } from './components/Score'
 import Chronometer from './components/Chronometer'
 import Difficulty, {
     getDefaultDifficulties,
@@ -40,7 +40,7 @@ export default function App() {
         setWin(false)
         if (checkResult({ difficulty, x, y, result })) {
             setWin(true)
-            setScore(score + 1)
+            setScore(score + getPoints(difficulty))
             setWinTimeout(getNewQuestion)
         }
     }

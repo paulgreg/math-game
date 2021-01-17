@@ -11,6 +11,7 @@ import {
     DIVIDE_INT_2_NUMBER,
     DIVIDE_SIMPLE_FLOAT_NUMBER,
 } from './MathUtils'
+import { getPoints } from './Score'
 import { load, save } from './store'
 
 export const pickRandomDifficulty = (difficulties) => {
@@ -78,7 +79,10 @@ export default function Difficulty({
                         value={key}
                         checked={value}
                     ></input>{' '}
-                    {labels[key]}
+                    {labels[key]}{' '}
+                    <small className="difficulties-point">
+                        {getPoints(key)} points
+                    </small>
                 </label>
             ))}
         </div>
