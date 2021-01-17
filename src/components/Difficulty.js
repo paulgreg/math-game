@@ -3,65 +3,72 @@ import {
     ADD_INT_1_NUMBER,
     ADD_INT_2_NUMBER,
     ADD_INT_3_NUMBER,
+    getRandomInt,
     MULTIPLY_INT_1_NUMBER,
     MULTIPLY_INT_2_NUMBER,
     MULTIPLY_SIMPLE_FLOAT_NUMBER,
 } from './MathUtils'
+import { load, save } from './store'
 
-export const getDefaultDifficulty = () => {
-    return {
-        current: MULTIPLY_INT_1_NUMBER,
-    }
+export const pickRandomDifficulty = (difficulties) => {
+    const availableDifficulties = Object.entries(difficulties)
+        .filter(([_, value]) => value)
+        .map(([key, value]) => key)
+    return availableDifficulties[getRandomInt(0, availableDifficulties.length)]
 }
 
+const labels = {
+    ADD_INT_1_NUMBER: 'like 2 + 5',
+    ADD_INT_2_NUMBER: 'like 53 + 9',
+    ADD_INT_3_NUMBER: 'like 532 + 3',
+    MULTIPLY_INT_1_NUMBER: 'like 2 x 5',
+    MULTIPLY_INT_2_NUMBER: 'like 32 x 3',
+    MULTIPLY_SIMPLE_FLOAT_NUMBER: 'like 0.001 x 2',
+}
+
+export const getDefaultDifficulties = () => {
+    const savedDifficulty = load()
+    return (
+        savedDifficulty || {
+            [ADD_INT_1_NUMBER]: false,
+            [ADD_INT_2_NUMBER]: false,
+            [ADD_INT_3_NUMBER]: false,
+            [MULTIPLY_INT_1_NUMBER]: true,
+            [MULTIPLY_INT_2_NUMBER]: false,
+            [MULTIPLY_SIMPLE_FLOAT_NUMBER]: false,
+        }
+    )
+}
+
+const checkAtLeastOneValue = (options) =>
+    Object.values(options).find((v) => v) === true
+
 export default function Difficulty({
-    difficulty,
-    onDifficultyChange = () => {},
+    difficulties,
+    onDifficultiesChange = () => {},
 }) {
     const onChange = (e) => {
-        const v = e.target.value
-        onDifficultyChange({ current: v })
+        const value = e.target.checked
+        const newDifficulties = { ...difficulties, [e.target.value]: value }
+
+        if (checkAtLeastOneValue(newDifficulties)) {
+            onDifficultiesChange(newDifficulties)
+            save(newDifficulties)
+        }
     }
     return (
-        <div className="difficulty">
+        <div className="difficulties">
             Difficulty :
-            {[
-                {
-                    value: ADD_INT_1_NUMBER,
-                    label: 'like 2 + 5',
-                },
-                {
-                    value: ADD_INT_2_NUMBER,
-                    label: 'like 53 + 9',
-                },
-                {
-                    value: ADD_INT_3_NUMBER,
-                    label: 'like 532 + 3',
-                },
-                {
-                    value: MULTIPLY_INT_1_NUMBER,
-                    label: 'like 2 x 5',
-                },
-                {
-                    value: MULTIPLY_INT_2_NUMBER,
-                    label: 'like 32 x 3',
-                },
-
-                {
-                    value: MULTIPLY_SIMPLE_FLOAT_NUMBER,
-                    label: 'like 0.001 x 2',
-                },
-            ].map(({ value, label }) => (
-                <label className="difficulty-option">
+            {Object.entries(difficulties).map(([key, value]) => (
+                <label className="difficulties-option" key={key}>
                     <input
-                        type="radio"
-                        name="difficulty"
+                        type="checkbox"
+                        name="difficulties"
                         onChange={onChange}
-                        checked={difficulty.current === value}
-                        value={value}
+                        value={key}
+                        checked={value}
                     ></input>{' '}
-                    {value === difficulty.current}
-                    {label}
+                    {labels[key]}
                 </label>
             ))}
         </div>

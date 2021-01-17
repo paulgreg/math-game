@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import Question from './components/Question'
 import Score from './components/Score'
 import Chronometer from './components/Chronometer'
-import Difficulty, { getDefaultDifficulty } from './components/Difficulty'
+import Difficulty, {
+    getDefaultDifficulties,
+    pickRandomDifficulty,
+} from './components/Difficulty'
 import { generateNumbers } from './components/MathUtils'
 import { checkResult } from './components/MathUtils'
 import { useTimeout } from './timeout'
@@ -12,17 +15,21 @@ import Confetti from './components/Confetti'
 
 export default function App() {
     const [win, setWin] = useState(false)
-    const [difficulty, setDifficulty] = useState(getDefaultDifficulty())
+    const [difficulties, setDifficulties] = useState(getDefaultDifficulties())
+    const [difficulty, setDifficulty] = useState(
+        pickRandomDifficulty(difficulties)
+    )
 
     const [score, setScore] = useState(0)
     const [numbers, setNumbers] = useState(generateNumbers(difficulty))
 
     const [setWinTimeout] = useTimeout(300)
 
-    const getNewQuestion = () => {
+    const getNewQuestion = useCallback(() => {
+        setDifficulty(pickRandomDifficulty(difficulties))
         setNumbers(generateNumbers(difficulty))
         setWin(false)
-    }
+    }, [difficulty, difficulties])
 
     const checkAnswer = (result) => {
         setWin(false)
@@ -33,7 +40,7 @@ export default function App() {
         }
     }
 
-    useEffect(getNewQuestion, [difficulty])
+    useEffect(getNewQuestion, [getNewQuestion, difficulty, difficulties])
 
     const [x, y] = numbers
     return (
@@ -52,8 +59,8 @@ export default function App() {
             </section>
             <section className="app-options">
                 <Difficulty
-                    difficulty={difficulty}
-                    onDifficultyChange={(d) => setDifficulty(d)}
+                    difficulties={difficulties}
+                    onDifficultiesChange={(d) => setDifficulties(d)}
                 />
                 <Confetti win={win} />
             </section>

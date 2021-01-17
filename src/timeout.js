@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 // Thx Manuel ;-)
 export const useTimeout = (defaultDelay = 0) => {
@@ -9,7 +9,7 @@ export const useTimeout = (defaultDelay = 0) => {
             clearTimeout(id)
             setId(setTimeout(fn, delay))
         },
-        [id]
+        [id, defaultDelay]
     )
 
     return [launch]
