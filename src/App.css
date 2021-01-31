@@ -1,7 +1,14 @@
 .app-main {
     margin-top: 2em;
 }
+
 .app-options {
     margin-top: 2em;
+    padding-top: 1em;
+    padding-left: 1em;
     border-top: 1px dashed darkblue;
+}
+
+.app-summary {
+    font-size: 1.2em;
 }

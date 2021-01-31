@@ -63,11 +63,14 @@ export default function App() {
                 <Chronometer x={x} y={y} show={win} />
             </section>
             <section className="app-options">
-                <Difficulty
-                    difficulties={difficulties}
-                    onDifficultiesChange={(d) => setDifficulties(d)}
-                />
-                <Confetti win={win} />
+                <details className="app-details">
+                    <summary className="app-summary">Options</summary>
+                    <Difficulty
+                        difficulties={difficulties}
+                        onDifficultiesChange={(d) => setDifficulties(d)}
+                    />
+                    <Confetti win={win} />
+                </details>
             </section>
         </div>
     )

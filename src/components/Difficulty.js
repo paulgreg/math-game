@@ -75,7 +75,7 @@ export default function Difficulty({
     }
     return (
         <div className="difficulties">
-            Difficulty :
+            Operations :
             {Object.entries(difficulties).map(([key, value]) => (
                 <label className="difficulties-option" key={key}>
                     <input
