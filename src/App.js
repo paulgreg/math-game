@@ -70,6 +70,16 @@ export default function App() {
                         onDifficultiesChange={(d) => setDifficulties(d)}
                     />
                     <Confetti win={win} />
+                    <p>
+                        That web application is free software -{' '}
+                        <a href="https://github.com/paulgreg/math-game/blob/main/LICENSE.md">
+                            MIT License
+                        </a>{' '}
+                        - Source code on{' '}
+                        <a href="https://github.com/paulgreg/math-game">
+                            github
+                        </a>
+                    </p>
                 </details>
             </section>
         </div>
