@@ -2,6 +2,11 @@ export const ADD_INT_SIMPLE_NUMBER = 'ADD_INT_SIMPLE_NUMBER'
 export const ADD_INT_1_NUMBER = 'ADD_INT_1_NUMBER'
 export const ADD_INT_2_NUMBER = 'ADD_INT_2_NUMBER'
 export const ADD_INT_3_NUMBER = 'ADD_INT_3_NUMBER'
+export const SUBSTRACT_INT_1_NUMBER = 'SUBSTRACT_INT_1_NUMBER'
+export const SUBSTRACT_INT_2_NUMBER = 'SUBSTRACT_INT_2_NUMBER'
+export const SUBSTRACT_INT_3_NUMBER = 'SUBSTRACT_INT_3_NUMBER'
+export const SUBSTRACT_NEGATIVE_INT_1_NUMBER = 'SUBSTRACT_NEGATIVE_INT_1_NUMBER'
+export const SUBSTRACT_NEGATIVE_INT_2_NUMBER = 'SUBSTRACT_NEGATIVE_INT_2_NUMBER'
 export const MULTIPLY_INT_1_NUMBER = 'MULTIPLY_INT_1_NUMBER'
 export const MULTIPLY_INT_2_NUMBER = 'MULTIPLY_INT_2_NUMBER'
 export const MULTIPLY_INT_TENS_NUMBER = 'MULTIPLY_INT_TENS_NUMBER'
@@ -10,20 +15,17 @@ export const DIVIDE_SIMPLE_FLOAT_NUMBER = 'DIVIDE_SIMPLE_FLOAT_NUMBER'
 export const DIVIDE_INT_2_NUMBER = 'DIVIDE_INT_2_NUMBER'
 export const DIVIDE_INT_TENS_NUMBER = 'DIVIDE_INT_TENS_NUMBER'
 
-export const getRandomSimpleFloat = () => {
-    const power = getRandomInt(1, 3)
-    return 1 / Math.pow(10, power)
-}
+export const getRandomSimpleFloat = (power = getRandomInt(1, 3)) =>
+    1 / Math.pow(10, power)
 
-export const getRandomFloat = () => {
-    return (
-        getRandomInt(1, 999) +
-        getRandomInt(1, 999) / Math.pow(10, getRandomInt(0, 3))
-    )
-}
+export const getRandomFloat = (
+    n1 = getRandomInt(1, 999),
+    n2 = getRandomInt(10, 999),
+    power = getRandomInt(1, 3)
+) => n1 + n2 / Math.pow(10, power)
 
-export const getRandomInt = (min, max) =>
-    Math.round(Math.random() * (max - min) + min)
+export const getRandomInt = (min, max, rnd = Math.random()) =>
+    Math.round(rnd * (max - min) + min)
 
 export const generateNumbers = (difficulty) => {
     switch (difficulty) {
@@ -48,6 +50,16 @@ export const generateNumbers = (difficulty) => {
             return [getRandomInt(2, 100), Math.pow(10, getRandomInt(1, 4))]
         case DIVIDE_INT_TENS_NUMBER:
             return [getRandomInt(100, 9999), Math.pow(10, getRandomInt(1, 4))]
+        case SUBSTRACT_INT_1_NUMBER:
+            return [getRandomInt(5, 10), getRandomInt(1, 5)]
+        case SUBSTRACT_INT_2_NUMBER:
+            return [getRandomInt(50, 99), getRandomInt(1, 49)]
+        case SUBSTRACT_INT_3_NUMBER:
+            return [getRandomInt(100, 999), getRandomInt(1, 99)]
+        case SUBSTRACT_NEGATIVE_INT_1_NUMBER:
+            return [getRandomInt(1, 10), getRandomInt(1, 9)]
+        case SUBSTRACT_NEGATIVE_INT_2_NUMBER:
+            return [getRandomInt(1, 99), getRandomInt(1, 99)]
         default:
             throw new Error('difficulty is not set')
     }
@@ -64,6 +76,12 @@ export const getOperation = (difficulty) => {
         case MULTIPLY_SIMPLE_FLOAT_NUMBER:
         case MULTIPLY_INT_TENS_NUMBER:
             return 'x'
+        case SUBSTRACT_INT_1_NUMBER:
+        case SUBSTRACT_INT_2_NUMBER:
+        case SUBSTRACT_INT_3_NUMBER:
+        case SUBSTRACT_NEGATIVE_INT_1_NUMBER:
+        case SUBSTRACT_NEGATIVE_INT_2_NUMBER:
+            return '-'
         case ADD_INT_SIMPLE_NUMBER:
         case ADD_INT_1_NUMBER:
         case ADD_INT_2_NUMBER:
@@ -81,6 +99,8 @@ const compute = ({ difficulty, x, y }) => {
             return x / y
         case '+':
             return x + y
+        case '-':
+            return x - y
         default:
             throw new Error('difficulty is not set')
     }

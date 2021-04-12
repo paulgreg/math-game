@@ -12,6 +12,11 @@ import {
     DIVIDE_SIMPLE_FLOAT_NUMBER,
     MULTIPLY_INT_TENS_NUMBER,
     DIVIDE_INT_TENS_NUMBER,
+    SUBSTRACT_INT_1_NUMBER,
+    SUBSTRACT_INT_2_NUMBER,
+    SUBSTRACT_INT_3_NUMBER,
+    SUBSTRACT_NEGATIVE_INT_1_NUMBER,
+    SUBSTRACT_NEGATIVE_INT_2_NUMBER,
 } from './MathUtils'
 import { getPoints } from './Score'
 import { load, save } from './store'
@@ -30,6 +35,13 @@ const labels = {
     ADD_INT_1_NUMBER: 'addition like 2 + 5',
     ADD_INT_2_NUMBER: 'addition like 53 + 9',
     ADD_INT_3_NUMBER: 'addition like 532 + 3',
+    SUBSTRACT_INT_1_NUMBER: 'simple substraction like 6 - 3',
+    SUBSTRACT_INT_2_NUMBER: 'substraction like 45 - 12',
+    SUBSTRACT_INT_3_NUMBER: 'substraction like 211 - 122',
+    SUBSTRACT_NEGATIVE_INT_1_NUMBER:
+        'simple substraction with negative numbers like 4 - 6',
+    SUBSTRACT_NEGATIVE_INT_2_NUMBER:
+        'substraction with negative numbers like 12 - 22',
     MULTIPLY_INT_1_NUMBER: 'classic multiplication like 2 x 5',
     MULTIPLY_INT_2_NUMBER: 'multiplication like 32 x 3',
     DIVIDE_INT_2_NUMBER: 'classic division like 30 ÷  5',
@@ -46,6 +58,11 @@ export const getDefaultDifficulties = () => {
         [ADD_INT_1_NUMBER]: false,
         [ADD_INT_2_NUMBER]: false,
         [ADD_INT_3_NUMBER]: false,
+        [SUBSTRACT_INT_1_NUMBER]: false,
+        [SUBSTRACT_INT_2_NUMBER]: false,
+        [SUBSTRACT_INT_3_NUMBER]: false,
+        [SUBSTRACT_NEGATIVE_INT_1_NUMBER]: false,
+        [SUBSTRACT_NEGATIVE_INT_2_NUMBER]: false,
         [MULTIPLY_INT_1_NUMBER]: true,
         [MULTIPLY_INT_2_NUMBER]: false,
         [MULTIPLY_INT_TENS_NUMBER]: false,
