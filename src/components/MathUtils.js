@@ -53,13 +53,13 @@ export const generateNumbers = (difficulty) => {
         case SUBSTRACT_INT_1_NUMBER:
             return [getRandomInt(5, 10), getRandomInt(1, 5)]
         case SUBSTRACT_INT_2_NUMBER:
-            return [getRandomInt(50, 99), getRandomInt(1, 49)]
+            return [getRandomInt(50, 99), getRandomInt(1, 50)]
         case SUBSTRACT_INT_3_NUMBER:
-            return [getRandomInt(100, 999), getRandomInt(1, 99)]
+            return [getRandomInt(100, 999), getRandomInt(1, 100)]
         case SUBSTRACT_NEGATIVE_INT_1_NUMBER:
-            return [getRandomInt(1, 10), getRandomInt(1, 9)]
+            return [getRandomInt(1, 10), getRandomInt(5, 10)]
         case SUBSTRACT_NEGATIVE_INT_2_NUMBER:
-            return [getRandomInt(1, 99), getRandomInt(1, 99)]
+            return [getRandomInt(1, 50), getRandomInt(50, 100)]
         default:
             throw new Error('difficulty is not set')
     }
