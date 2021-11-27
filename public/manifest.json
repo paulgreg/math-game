@@ -1,6 +1,6 @@
 {
-    "short_name": "Math Game",
-    "name": "A game about multiplications",
+    "short_name": "MG",
+    "name": "Math Game",
     "icons": [
         {
             "src": "favicon.ico",
