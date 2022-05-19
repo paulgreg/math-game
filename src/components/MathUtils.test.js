@@ -1,17 +1,18 @@
 import {
     checkResult,
-    MULTIPLY_INT_1_NUMBER,
-    MULTIPLY_SIMPLE_FLOAT_NUMBER,
     getOperation,
-    ADD_INT_1_NUMBER,
     getRandomInt,
     getRandomSimpleFloat,
     getRandomFloat,
+    MULTIPLY_INT_1_NUMBER,
+    MULTIPLY_SIMPLE_FLOAT_NUMBER,
+    ADD_INT_1_NUMBER,
     DIVIDE_INT_2_NUMBER,
     SUBSTRACT_INT_1_NUMBER,
     SUBSTRACT_INT_2_NUMBER,
     SUBSTRACT_INT_3_NUMBER,
     SUBSTRACT_NEGATIVE_INT_1_NUMBER,
+    SUBSTRACT_INT_FROM_TEN_NUMBER,
 } from './MathUtils'
 
 describe('MathUtils', () => {
@@ -174,6 +175,13 @@ describe('MathUtils', () => {
                 y: 6,
                 result: '1',
                 expected: false,
+            },
+            {
+                difficulty: SUBSTRACT_INT_FROM_TEN_NUMBER,
+                x: 10,
+                y: 5,
+                result: '5',
+                expected: true,
             },
             {
                 difficulty: SUBSTRACT_INT_2_NUMBER,

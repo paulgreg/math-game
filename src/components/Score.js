@@ -3,7 +3,6 @@ import './Score.css'
 export const getPoints = (difficulty) => {
     return (
         {
-            ADD_INT_SIMPLE_NUMBER: 1,
             ADD_INT_1_NUMBER: 2,
             MULTIPLY_INT_TENS_NUMBER: 2,
             SUBSTRACT_INT_1_NUMBER: 2,

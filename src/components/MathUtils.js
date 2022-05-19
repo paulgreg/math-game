@@ -4,6 +4,7 @@ export const ADD_INT_2_NUMBER = 'ADD_INT_2_NUMBER'
 export const ADD_INT_3_NUMBER = 'ADD_INT_3_NUMBER'
 export const SUBSTRACT_INT_1_NUMBER = 'SUBSTRACT_INT_1_NUMBER'
 export const SUBSTRACT_INT_2_NUMBER = 'SUBSTRACT_INT_2_NUMBER'
+export const SUBSTRACT_INT_FROM_TEN_NUMBER = 'SUBSTRACT_INT_FROM_TEN_NUMBER'
 export const SUBSTRACT_INT_3_NUMBER = 'SUBSTRACT_INT_3_NUMBER'
 export const SUBSTRACT_NEGATIVE_INT_1_NUMBER = 'SUBSTRACT_NEGATIVE_INT_1_NUMBER'
 export const SUBSTRACT_NEGATIVE_INT_2_NUMBER = 'SUBSTRACT_NEGATIVE_INT_2_NUMBER'
@@ -52,6 +53,8 @@ export const generateNumbers = (difficulty) => {
             return [getRandomInt(100, 9999), Math.pow(10, getRandomInt(1, 4))]
         case SUBSTRACT_INT_1_NUMBER:
             return [getRandomInt(5, 10), getRandomInt(1, 5)]
+        case SUBSTRACT_INT_FROM_TEN_NUMBER:
+            return [10, getRandomInt(1, 10)]
         case SUBSTRACT_INT_2_NUMBER:
             return [getRandomInt(50, 99), getRandomInt(1, 50)]
         case SUBSTRACT_INT_3_NUMBER:
@@ -77,6 +80,7 @@ export const getOperation = (difficulty) => {
         case MULTIPLY_INT_TENS_NUMBER:
             return 'x'
         case SUBSTRACT_INT_1_NUMBER:
+        case SUBSTRACT_INT_FROM_TEN_NUMBER:
         case SUBSTRACT_INT_2_NUMBER:
         case SUBSTRACT_INT_3_NUMBER:
         case SUBSTRACT_NEGATIVE_INT_1_NUMBER:

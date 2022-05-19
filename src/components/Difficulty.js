@@ -13,6 +13,7 @@ import {
     MULTIPLY_INT_TENS_NUMBER,
     DIVIDE_INT_TENS_NUMBER,
     SUBSTRACT_INT_1_NUMBER,
+    SUBSTRACT_INT_FROM_TEN_NUMBER,
     SUBSTRACT_INT_2_NUMBER,
     SUBSTRACT_INT_3_NUMBER,
     SUBSTRACT_NEGATIVE_INT_1_NUMBER,
@@ -32,10 +33,11 @@ export const pickRandomDifficulty = (difficulties) => {
 
 const labels = {
     ADD_INT_SIMPLE_NUMBER: 'simple addition like 2 + 2',
-    ADD_INT_1_NUMBER: 'addition like 2 + 5',
+    ADD_INT_1_NUMBER: 'addition like 6 + 9',
     ADD_INT_2_NUMBER: 'addition like 53 + 9',
     ADD_INT_3_NUMBER: 'addition like 532 + 3',
     SUBSTRACT_INT_1_NUMBER: 'simple substraction like 6 - 3',
+    SUBSTRACT_INT_FROM_TEN_NUMBER: 'substraction from 10 like 10 - 3',
     SUBSTRACT_INT_2_NUMBER: 'substraction like 45 - 12',
     SUBSTRACT_INT_3_NUMBER: 'substraction like 211 - 122',
     SUBSTRACT_NEGATIVE_INT_1_NUMBER:
@@ -59,6 +61,7 @@ export const getDefaultDifficulties = () => {
         [ADD_INT_2_NUMBER]: false,
         [ADD_INT_3_NUMBER]: false,
         [SUBSTRACT_INT_1_NUMBER]: false,
+        [SUBSTRACT_INT_FROM_TEN_NUMBER]: false,
         [SUBSTRACT_INT_2_NUMBER]: false,
         [SUBSTRACT_INT_3_NUMBER]: false,
         [SUBSTRACT_NEGATIVE_INT_1_NUMBER]: false,
