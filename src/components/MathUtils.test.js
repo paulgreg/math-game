@@ -13,6 +13,7 @@ import {
     SUBSTRACT_INT_3_NUMBER,
     SUBSTRACT_NEGATIVE_INT_1_NUMBER,
     SUBSTRACT_INT_FROM_TEN_NUMBER,
+    ADD_INT_10_NUMBER,
 } from './MathUtils'
 
 describe('MathUtils', () => {
@@ -83,6 +84,20 @@ describe('MathUtils', () => {
                 x: 1,
                 y: 1,
                 result: '1',
+                expected: false,
+            },
+            {
+                difficulty: ADD_INT_10_NUMBER,
+                x: 14,
+                y: 10,
+                result: '24',
+                expected: true,
+            },
+            {
+                difficulty: ADD_INT_10_NUMBER,
+                x: 14,
+                y: 10,
+                result: '25',
                 expected: false,
             },
             {

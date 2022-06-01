@@ -2,6 +2,7 @@ import './Difficulty.css'
 import {
     getRandomInt,
     ADD_INT_1_NUMBER,
+    ADD_INT_10_NUMBER,
     ADD_INT_2_NUMBER,
     ADD_INT_3_NUMBER,
     ADD_INT_SIMPLE_NUMBER,
@@ -18,6 +19,7 @@ import {
     SUBSTRACT_INT_3_NUMBER,
     SUBSTRACT_NEGATIVE_INT_1_NUMBER,
     SUBSTRACT_NEGATIVE_INT_2_NUMBER,
+    ADD_INT_20_NUMBER,
 } from './MathUtils'
 import { getPoints } from './Score'
 import { load, save } from './store'
@@ -34,6 +36,8 @@ export const pickRandomDifficulty = (difficulties) => {
 const labels = {
     ADD_INT_SIMPLE_NUMBER: 'simple addition like 2 + 2',
     ADD_INT_1_NUMBER: 'addition like 6 + 9',
+    ADD_INT_10_NUMBER: 'addition like 23 + 20',
+    ADD_INT_20_NUMBER: 'addition like 23 + 70',
     ADD_INT_2_NUMBER: 'addition like 53 + 9',
     ADD_INT_3_NUMBER: 'addition like 532 + 3',
     SUBSTRACT_INT_1_NUMBER: 'simple substraction like 6 - 3',
@@ -58,6 +62,8 @@ export const getDefaultDifficulties = () => {
     return {
         [ADD_INT_SIMPLE_NUMBER]: false,
         [ADD_INT_1_NUMBER]: false,
+        [ADD_INT_10_NUMBER]: false,
+        [ADD_INT_20_NUMBER]: false,
         [ADD_INT_2_NUMBER]: false,
         [ADD_INT_3_NUMBER]: false,
         [SUBSTRACT_INT_1_NUMBER]: false,

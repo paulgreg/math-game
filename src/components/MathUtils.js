@@ -1,5 +1,7 @@
 export const ADD_INT_SIMPLE_NUMBER = 'ADD_INT_SIMPLE_NUMBER'
 export const ADD_INT_1_NUMBER = 'ADD_INT_1_NUMBER'
+export const ADD_INT_10_NUMBER = 'ADD_INT_10_NUMBER'
+export const ADD_INT_20_NUMBER = 'ADD_INT_20_NUMBER'
 export const ADD_INT_2_NUMBER = 'ADD_INT_2_NUMBER'
 export const ADD_INT_3_NUMBER = 'ADD_INT_3_NUMBER'
 export const SUBSTRACT_INT_1_NUMBER = 'SUBSTRACT_INT_1_NUMBER'
@@ -47,6 +49,10 @@ export const generateNumbers = (difficulty) => {
         case MULTIPLY_INT_1_NUMBER:
         case ADD_INT_1_NUMBER:
             return [getRandomInt(2, 10), getRandomInt(2, 10)]
+        case ADD_INT_10_NUMBER:
+            return [getRandomInt(10, 40), 10 * getRandomInt(1, 5)]
+        case ADD_INT_20_NUMBER:
+            return [getRandomInt(10, 50), 10 * getRandomInt(1, 9)]
         case MULTIPLY_INT_TENS_NUMBER:
             return [getRandomInt(2, 100), Math.pow(10, getRandomInt(1, 4))]
         case DIVIDE_INT_TENS_NUMBER:
@@ -88,6 +94,8 @@ export const getOperation = (difficulty) => {
             return '-'
         case ADD_INT_SIMPLE_NUMBER:
         case ADD_INT_1_NUMBER:
+        case ADD_INT_10_NUMBER:
+        case ADD_INT_20_NUMBER:
         case ADD_INT_2_NUMBER:
         case ADD_INT_3_NUMBER:
         default:
