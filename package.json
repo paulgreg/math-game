@@ -15,6 +15,7 @@
     "scripts": {
         "start": "react-scripts start",
         "dev": "npm run start",
+        "deploy": "npm i && PUBLIC_URL=\"https://paulgreg.me/math-game\" ./to_ghpages",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "tdd": "react-scripts test --watch",
