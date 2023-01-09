@@ -9,7 +9,7 @@ export default function Question({
     disabled = false,
     onSubmit = () => {},
 }) {
-    const [value, setValue] = useState()
+    const [value, setValue] = useState('')
     useEffect(() => setValue(''), [x, y])
 
     const onNumberChange = (e) => {
