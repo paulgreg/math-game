@@ -1,6 +1,10 @@
 {
-    "short_name": "MG",
     "name": "Math Game",
+    "short_name": "Math",
+    "start_url": "./",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#97d2e9",
     "icons": [
         {
             "src": "favicon.ico",
@@ -17,9 +21,5 @@
             "type": "image/png",
             "sizes": "512x512"
         }
-    ],
-    "start_url": "./",
-    "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#97d2e9"
+    ]
 }
