@@ -5,8 +5,7 @@
     "dependencies": {
         "canvas-confetti": "^1.9.2",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "vite-plugin-pwa": "^0.17.4"
+        "react-dom": "^18.2.0"
     },
     "scripts": {
         "dev": "vite",
@@ -15,27 +14,10 @@
         "deploy": "npm i && ./to_ghpages",
         "test": "vitest"
     },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
     "devDependencies": {
         "@vitejs/plugin-react": "^4.2.1",
         "vite": "^5.0.12",
+        "vite-plugin-pwa": "^0.17.4",
         "vitest": "^1.2.1"
     }
 }
