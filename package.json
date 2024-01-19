@@ -6,16 +6,14 @@
         "canvas-confetti": "^1.9.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-scripts": "^5.0.1"
+        "vite-plugin-pwa": "^0.17.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "dev": "npm run start",
-        "deploy": "npm i && PUBLIC_URL=\"https://paulgreg.me/math-game\" ./to_ghpages",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "tdd": "react-scripts test --watch",
-        "eject": "react-scripts eject"
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview",
+        "deploy": "npm i && ./to_ghpages",
+        "test": "vitest"
     },
     "eslintConfig": {
         "extends": [
@@ -34,5 +32,10 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.2.1",
+        "vite": "^5.0.12",
+        "vitest": "^1.2.1"
     }
 }
