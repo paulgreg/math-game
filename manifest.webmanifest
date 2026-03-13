@@ -1,0 +1,25 @@
+{
+    "name": "Math Game",
+    "short_name": "Math",
+    "start_url": "./",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#97d2e9",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "logo-multiply-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "logo-multiply-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
